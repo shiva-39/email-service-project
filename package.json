@@ -1,0 +1,19 @@
+{
+  "name": "email-service-project",
+  "version": "1.0.0",
+  "main": "src/EmailService.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4"
+  },
+  "description": "Modern applications often need to send transactional or notification emails reliably and efficiently. Relying on a single email provider can lead to service disruptions if that provider experiences downtime, rate limits, or failures. To address this, a robust email service should:",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
