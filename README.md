@@ -4,11 +4,11 @@
 
 Modern applications often need to send transactional or notification emails reliably and efficiently. Relying on a single email provider can lead to service disruptions if that provider experiences downtime, rate limits, or failures. To address this, a robust email service should:
 
-- Abstract multiple email providers, allowing #seamless failover and load balancing.
-- Implement reliability patterns such as #rate limiting, #circuit breaking, and #exponential backoff to handle provider errors and transient failures.
+- Abstract multiple email providers, allowing seamless failover and load balancing.
+- Implement reliability patterns such as rate limiting, circuit breaking, and exponential backoff to handle provider errors and transient failures.
 - Track the status of email requests and responses for monitoring and debugging.
-- Be modular and testable, #with clear separation between providers, utilities, andsiness logic.
- bu
+- Be modular and testable, with clear separation between providers, utilities, and business logic.
+
 This project provides a modular email service architecture with mock providers, utility modules, and comprehensive tests to demonstrate these concepts.
 
 ## Assumptions
@@ -75,6 +75,31 @@ Each provider should implement:
   ```sh
   npx mocha tests/*.js
   ```
+
+## Usage Example
+```js
+const EmailService = require('./src/EmailService');
+const MockProviderA = require('./src/providers/MockProviderA');
+const MockProviderB = require('./src/providers/MockProviderB');
+
+const service = new EmailService([
+  new MockProviderA(),
+  new MockProviderB()
+], { maxRequestsPerMinute: 10 });
+
+(async () => {
+  const req = {
+    to: 'user@example.com',
+    subject: 'Hello',
+    body: 'Welcome!',
+    idempotencyKey: 'unique-key-1'
+  };
+  const res = await service.sendEmail(req);
+  console.log('Send result:', res);
+  const status = service.getStatus(req.idempotencyKey);
+  console.log('Status history:', status);
+})();
+```
 
 ## Module Overview
 - **MockProviderA / MockProviderB:** Simulate real providers with random failures/delays for testing failover and retry logic.
