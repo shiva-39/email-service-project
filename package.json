@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/EmailService.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/server.js",
     "test": "jest",
     "api": "node src/server.js"
   },
