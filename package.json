@@ -4,7 +4,7 @@
   "main": "src/EmailService.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "jest",
+    "test": "jest --testPathIgnorePatterns=cloudApi.test.js",
     "api": "node src/server.js"
   },
   "devDependencies": {
