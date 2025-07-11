@@ -1,7 +1,7 @@
 // tests/cloudApi.test.js
 // Automated tests for the deployed (cloud) API endpoint using supertest and the public URL
 
-jest.setTimeout(30000); // Increase timeout for slow cloud endpoints
+jest.setTimeout(60000); // Increase timeout for slow cloud endpoints (60 seconds)
 
 const axios = require('axios');
 
