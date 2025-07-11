@@ -33,5 +33,10 @@ app.get('/status/:id', (req, res) => {
   }
 });
 
+// Root route for API info or health check
+app.get('/', (req, res) => {
+  res.json({ message: 'Email Service API is running.' });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
