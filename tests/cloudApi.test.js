@@ -1,6 +1,8 @@
 // tests/cloudApi.test.js
 // Automated tests for the deployed (cloud) API endpoint using supertest and the public URL
 
+jest.setTimeout(30000); // Increase timeout for slow cloud endpoints
+
 const axios = require('axios');
 
 const BASE_URL = 'https://email-service-project-reh7.onrender.com';
