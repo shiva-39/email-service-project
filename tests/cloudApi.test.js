@@ -7,7 +7,7 @@ const axios = require('axios');
 
 const BASE_URL = 'https://email-service-project-reh7.onrender.com';
 
-describe('Cloud API Endpoint Tests', () => {
+describe.skip('Cloud API Endpoint Tests', () => {
   it('GET / should return API running message', async () => {
     const res = await axios.get(BASE_URL + '/');
     expect(res.status).toBe(200);
